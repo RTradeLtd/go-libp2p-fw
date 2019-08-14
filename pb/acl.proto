@@ -1,11 +1,25 @@
 syntax = "proto3";
+package pb;
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+option (gogoproto.gostring_all) = true;
+option (gogoproto.equal_all) = true;
+option (gogoproto.verbose_equal_all) = true;
+option (gogoproto.goproto_stringer_all) = false;
+option (gogoproto.stringer_all) =  true;
+option (gogoproto.populate_all) = true;
+option (gogoproto.testgen_all) = true;
+// uncomment to enable bench generation
+option (gogoproto.benchgen_all) = true;
+option (gogoproto.marshaler_all) = true;
+option (gogoproto.sizer_all) = true;
+option (gogoproto.unmarshaler_all) = true;
 
 // List is a list of ACL rules
 message List {
-    // acls is a mapping of access control list entries
+    // acls is an array of access control list entries
     // the entries are ordered by priority, with higher priority
     // rules being evaluated first, and lower priority rules being evaluated last
-    map<int64, ACL> acls = 1;
+    repeated ACL acls = 1;
 }
 
 // FILTER_TYPE lists different possible filter methods
