@@ -30,8 +30,8 @@ enum FILTER_TYPE {
     IP_ADDRESS4 = 1;
     // IP_ADDRESS6 is used to filter traffic based off ipv6 addresses
     IP_ADDRESS6 = 2;
-    // PROTOCOL is used to filter traffic based off the protocol it is using (ie, /ping/1.0.0)
-    PROTOCOL = 3;
+    // PROTOCOL_ID is used to filter traffic based off the protocol it is using (ie, /ping/1.0.0)
+    PROTOCOL_ID = 3;
 }
 
 // DIRECTION lists different traffic direction
