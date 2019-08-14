@@ -1,3 +1,6 @@
+.PHONY: gen
+gen: proto-gen tidy
+
 # uses gogofaster to get us even faster unmarshaling/marshaling speeds
 .PHONY: proto-gen
 proto-gen:
@@ -22,3 +25,19 @@ proto-gen:
 .PHONY: deps
 deps:
 	go get github.com/gogo/protobuf/protoc-gen-gofast
+
+# run standard go tooling for better readability
+.PHONY: tidy
+tidy: imports fmt
+	go vet ./...
+	golint ./...
+
+# automatically add missing imports
+.PHONY: imports
+imports:
+	find . -type f -name '*.go' -exec goimports -w {} \;
+
+# format code and simplify if possible
+.PHONY: fmt
+fmt:
+	find . -type f -name '*.go' -exec gofmt -s -w {} \;
