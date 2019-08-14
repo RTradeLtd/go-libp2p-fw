@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+// List is a list of ACL rules
+message List {
+    // acls is a mapping of access control list entries
+    // the entries are ordered by priority, with higher priority
+    // rules being evaluated first, and lower priority rules being evaluated last
+    map<int64, ACL> acls = 1;
+}
+
+// FILTER_TYPE lists different possible filter methods
+enum FILTER_TYPE {
+    // PEER_ID is used to filter traffic based off the peerid it is coming from 
+    PEER_ID = 0;
+    // IP_ADDRESS4 is used to filter traffic based off ipv4 addresses
+    IP_ADDRESS4 = 1;
+    // IP_ADDRESS6 is used to filter traffic based off ipv6 addresses
+    IP_ADDRESS6 = 2;
+    // PROTOCOL is used to filter traffic based off the protocol it is using (ie, /ping/1.0.0)
+    PROTOCOL = 3;
+}
+
+// DIRECTION lists different traffic direction
+enum DIRECTION {
+    INBOUND = 0;
+    OUTBOUND = 1;
+    IN_OUT = 2;
+    RELAY = 3;
+}
+
+// ACL is an individual access control list entry
+message ACL {
+    // filterType denotes the type of filter this ACL is using
+    FILTER_TYPE filterType = 1;
+    // direction is the traffic direction this ACL applies to
+    DIRECTION direction = 2;
+}
