@@ -32,6 +32,11 @@ enum FILTER_TYPE {
     IP_ADDRESS6 = 2;
     // PROTOCOL_ID is used to filter traffic based off the protocol it is using (ie, /ping/1.0.0)
     PROTOCOL_ID = 3;
+    // DNS is used to filter traffic based off the dns hostname
+    DNS = 4;
+    // ENS is used to filter traffic based off the ens hostname
+    ENS = 5;
+
 }
 
 // DIRECTION lists different traffic direction
