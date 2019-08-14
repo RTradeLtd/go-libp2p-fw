@@ -19,7 +19,7 @@ message List {
     // acls is an array of access control list entries
     // the entries are ordered by priority, with higher priority
     // rules being evaluated first, and lower priority rules being evaluated last
-    repeated ACL acls = 1;
+    map<int64, ACL> acls = 1;
 }
 
 // FILTER_TYPE lists different possible filter methods

@@ -186,6 +186,10 @@
                   <a href="#pb.List"><span class="badge">M</span>List</a>
                 </li>
               
+                <li>
+                  <a href="#pb.List.AclsEntry"><span class="badge">M</span>List.AclsEntry</a>
+                </li>
+              
               
                 <li>
                   <a href="#pb.DIRECTION"><span class="badge">E</span>DIRECTION</a>
@@ -255,11 +259,42 @@
               
                 <tr>
                   <td>acls</td>
-                  <td><a href="#pb.ACL">ACL</a></td>
+                  <td><a href="#pb.List.AclsEntry">List.AclsEntry</a></td>
                   <td>repeated</td>
                   <td><p>acls is an array of access control list entries
 the entries are ordered by priority, with higher priority
 rules being evaluated first, and lower priority rules being evaluated last </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="pb.List.AclsEntry">List.AclsEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#pb.ACL">ACL</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
             </tbody>
