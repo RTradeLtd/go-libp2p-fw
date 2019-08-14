@@ -16,9 +16,10 @@ option (gogoproto.unmarshaler_all) = true;
 
 // List is a list of ACL rules
 message List {
-    // acls is an array of access control list entries
-    // the entries are ordered by priority, with higher priority
-    // rules being evaluated first, and lower priority rules being evaluated last
+    // acls is a map of access control list entries where
+    // rules are ordered by highest priority, to lower priority.
+    // higher priority rules are matched first, lower priority rules are matched last
+    // and the first match is used to process traffic.
     map<int64, ACL> acls = 1;
 }
 
@@ -41,9 +42,13 @@ enum FILTER_TYPE {
 
 // DIRECTION lists different traffic direction
 enum DIRECTION {
+    // INBOUND matches incoming traffic
     INBOUND = 0;
+    // OUTBOUND matches outgoing traffic
     OUTBOUND = 1;
+    // IN_OUT matches both incoming and outgoing traffic
     IN_OUT = 2;
+    // RELAY matches relayed traffic
     RELAY = 3;
 }
 

@@ -272,9 +272,10 @@
                   <td>acls</td>
                   <td><a href="#pb.List.AclsEntry">List.AclsEntry</a></td>
                   <td>repeated</td>
-                  <td><p>acls is an array of access control list entries
-the entries are ordered by priority, with higher priority
-rules being evaluated first, and lower priority rules being evaluated last </p></td>
+                  <td><p>acls is a map of access control list entries where
+rules are ordered by highest priority, to lower priority.
+higher priority rules are matched first, lower priority rules are matched last
+and the first match is used to process traffic. </p></td>
                 </tr>
               
             </tbody>
@@ -351,25 +352,25 @@ rules being evaluated first, and lower priority rules being evaluated last </p><
               <tr>
                 <td>INBOUND</td>
                 <td>0</td>
-                <td><p></p></td>
+                <td><p>INBOUND matches incoming traffic</p></td>
               </tr>
             
               <tr>
                 <td>OUTBOUND</td>
                 <td>1</td>
-                <td><p></p></td>
+                <td><p>OUTBOUND matches outgoing traffic</p></td>
               </tr>
             
               <tr>
                 <td>IN_OUT</td>
                 <td>2</td>
-                <td><p></p></td>
+                <td><p>IN_OUT matches both incoming and outgoing traffic</p></td>
               </tr>
             
               <tr>
                 <td>RELAY</td>
                 <td>3</td>
-                <td><p></p></td>
+                <td><p>RELAY matches relayed traffic</p></td>
               </tr>
             
           </tbody>

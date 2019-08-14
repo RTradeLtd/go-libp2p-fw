@@ -74,10 +74,14 @@ func (FILTER_TYPE) EnumDescriptor() ([]byte, []int) {
 type DIRECTION int32
 
 const (
-	DIRECTION_INBOUND  DIRECTION = 0
+	// INBOUND matches incoming traffic
+	DIRECTION_INBOUND DIRECTION = 0
+	// OUTBOUND matches outgoing traffic
 	DIRECTION_OUTBOUND DIRECTION = 1
-	DIRECTION_IN_OUT   DIRECTION = 2
-	DIRECTION_RELAY    DIRECTION = 3
+	// IN_OUT matches both incoming and outgoing traffic
+	DIRECTION_IN_OUT DIRECTION = 2
+	// RELAY matches relayed traffic
+	DIRECTION_RELAY DIRECTION = 3
 )
 
 var DIRECTION_name = map[int32]string{
@@ -132,9 +136,10 @@ func (ACTION) EnumDescriptor() ([]byte, []int) {
 
 // List is a list of ACL rules
 type List struct {
-	// acls is an array of access control list entries
-	// the entries are ordered by priority, with higher priority
-	// rules being evaluated first, and lower priority rules being evaluated last
+	// acls is a map of access control list entries where
+	// rules are ordered by highest priority, to lower priority.
+	// higher priority rules are matched first, lower priority rules are matched last
+	// and the first match is used to process traffic.
 	Acls map[int64]*ACL `protobuf:"bytes,1,rep,name=acls,proto3" json:"acls,omitempty" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
