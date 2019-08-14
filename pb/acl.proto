@@ -42,10 +42,20 @@ enum DIRECTION {
     RELAY = 3;
 }
 
+// ACTION lists the different possibles actions to be taken on matched ACLs
+enum ACTION {
+    // ACCEPT is used to accept the connection (no shit)
+    ACCEPT = 0;
+    // REJECT is used to reject the connection (no shit)
+    REJECT = 1;
+}
+
 // ACL is an individual access control list entry
 message ACL {
     // filterType denotes the type of filter this ACL is using
     FILTER_TYPE filterType = 1;
     // direction is the traffic direction this ACL applies to
     DIRECTION direction = 2;
+    // action defines the action to be taken against the traffic matched by this acl
+    ACTION action = 3;
 }

@@ -192,6 +192,10 @@
               
               
                 <li>
+                  <a href="#pb.ACTION"><span class="badge">E</span>ACTION</a>
+                </li>
+              
+                <li>
                   <a href="#pb.DIRECTION"><span class="badge">E</span>DIRECTION</a>
                 </li>
               
@@ -238,6 +242,13 @@
                   <td><a href="#pb.DIRECTION">DIRECTION</a></td>
                   <td></td>
                   <td><p>direction is the traffic direction this ACL applies to </p></td>
+                </tr>
+              
+                <tr>
+                  <td>action</td>
+                  <td><a href="#pb.ACTION">ACTION</a></td>
+                  <td></td>
+                  <td><p>action defines the action to be taken against the traffic matched by this acl </p></td>
                 </tr>
               
             </tbody>
@@ -305,6 +316,29 @@ rules being evaluated first, and lower priority rules being evaluated last </p><
         
       
 
+      
+        <h3 id="pb.ACTION">ACTION</h3>
+        <p>ACTION lists the different possibles actions to be taken on matched ACLs</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ACCEPT</td>
+                <td>0</td>
+                <td><p>ACCEPT is used to accept the connection (no shit)</p></td>
+              </tr>
+            
+              <tr>
+                <td>REJECT</td>
+                <td>1</td>
+                <td><p>REJECT is used to reject the connection (no shit)</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
       
         <h3 id="pb.DIRECTION">DIRECTION</h3>
         <p>DIRECTION lists different traffic direction</p>
